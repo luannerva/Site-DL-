@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+    color: #1e1e2a;
+}
+
+P{    
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 940px;
+    /*padding: 0px 45px;*/
+    text-indent: 5px;
+    padding: 5px 0;
+    width: 70%;
+    font-size: 18px;
+}
+
+h1{
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+} 
+
+h2{
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size:  20px;
+}
+
+ul, li{
+    color: #1e1e2a;
+    text-decoration: none;
+    list-style: none;
+}
+
+/***************************  header  ***************************/
+.header-container{
+    height: 90vh;
+    width: 100vw;
+    background-color: rgb(211, 233, 222);
+    /*background-image: url(../imagens/deep_learning_projects.png);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+
+.checkbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+    transition: 400ms ease-in-out
+}
+
+.checkbox .trace{
+    width: 50px;
+    height: 2px;
+    background-color: #1e1e2a;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out
+}
+
+.checkbox .trace:nth-child(1){
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle{
+    display: none;
+}
+
+.menu{
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px mintcream;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+.menu-items{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items ul{
+    list-style-type: none;
+}
+
+.menu-items ul li a{
+    margin: 10px 0;
+    color: #1e1e2a;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size:  40px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(1){
+    transform: rotate(45deg);
+    top: 47px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2){
+    transform: rotate(45deg);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(135deg);
+    top: 48px;
+}
+
+#toggle:checked + .checkbox{
+    background-color: mintcream; 
+}
+
+#toggle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 100vmax mintcream;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-items{
+    visibility: visible;
+    opacity: 1;
+}
+
+/***************************   estatisticas     ***************************/
+.estatisticas{
+    background: mintcream;
+    max-width: 960px;
+    width: 90%;
+    /*height: 200px; */
+    padding: 30px 0;
+    margin: 0 auto;
+    /*margin-top: 10px;*/
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.estatisticas-item span{
+    font-size: 30px;
+    
+}
+
+.estatisticas-item p{
+    font-size: 20px;
+}
+
+.estatisticas-item{
+    min-width: 20%;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    flex: 1;
+    /*teste
+    min-width: 90%;*/
+}
+
+.estatisticas-item:not(:last-of-type){
+    /*padding-bottom: 15px;
+    margin-bottom: 15px;*/
+    border-right: 1px solid #ccc;
+}
+
+.quadro
+{
+    margin-block-start: 72px;
+}
+
+
+
+/***************************** tipos de rede neural ****************************/
+.div-section2
+{
+    margin-left: 50px;
+    align-items: center;
+    text-align: left;
+    margin-block-end: 150px;
+    margin-block-start: 150px;
+}
+
+
+
+/***************************************** cards rede neurais ******************************/
+
+main.card-redes
+{
+    display: flex;
+    margin-left: 50px;
+    margin-block-end: 72px;
+}
+
+main.cards-redes .cardredes1 img, .cardredes2 img, .cardredes3 img, .cardredes1 img
+{
+   width: 64px;
+   border-radius: 64px;
+}
+
+
+.cardredes1
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-block-end: 50px;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    background: aquamarine;
+    padding: 1rem 6rem;
+    border-radius: 8px; 
+    max-height: 256px;
+}
+
+.cardredes2
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-block-end: 50px;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    background: aquamarine;
+    padding: 1rem 1.5rem;
+    border-radius: 8px; 
+    max-height: 256px;
+}
+
+.cardredes3
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-block-end: 50px;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    background: aquamarine;
+    padding: 1rem 1.5rem;
+    border-radius: 8px; 
+    max-height: 256px;
+}
+
+
+
+/**************************** Depois dos cards *********************/
+
+
+
+
+.ferramentas
+{
+    margin-block-start: 92px;
+}
+
+.linguagensDL
+{
+    margin-block-start: 92px;
+}
+
+.HistóriaDL
+{
+    margin-block-start: 150px;
+    margin-block-end: 150px;
+}
+
+
+/**************************** Linha do Tempo ********************/
+
+
+.linha-do-tempo
+{
+    position: relative;
+    max-width: 1024px;height: auto;
+    padding: 0px;margin: 0px auto;
+    overflow: hidden;
+}    
+        
+        
+.ano 
+{
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 3px;
+    color: #f0f0f0;
+    background-color: rgb(173, 45, 66);background-image: -webkit-linear-gradient(140deg,rgba(255, 255, 255, .2) 50%,
+    transparent 50%,
+    transparent);
+    text-align: center;
+    margin-top:  7%;
+    margin: 1% auto;
+    clear: both;
+}          
+
+        
+.item1 
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+             
+.item2
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}        
+        
+.item3
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+
+.item4
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+.item5
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+.item6
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+.item7
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+.item8
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+
+.item9
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+
+.item10
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+
+
+.item11
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    float:inline-start;
+    text-align: center;
+}
+
+.videoyoutube1
+{
+    margin-left: 220px;
+    margin-right: 55px;
+    margin-block-end: 150px;
+}
+
+
+.videoyoutube2
+{
+    margin-left: 10px;
+    margin-right: 55px;
+    margin-block-end: px;
+}
+
+/************************ Footer *****************************/
+
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:0.9;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+
+
+
+
+
+
+
+
+
+

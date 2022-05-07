@@ -1,0 +1,392 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+    color: #1e1e2a;
+}
+
+/*********  header  *********/
+.header-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: mintcream;
+    /*background-image: url(../imagens/fundo-menta.jpg);*/
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+
+h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2{
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+.social-media{
+    margin-top: 1rem;
+    display: flex;
+}
+
+.social-media a{
+    text-decoration: none;
+    color: #1e1e2a;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 4rem;
+    border: 1px solid #1e1e2a;
+    min-width: 4rem;
+    align-items: center;
+    transition: .5s ease-in-out;
+}
+
+a:hover{
+    background-color: #1e1e2a;
+    color: mintcream;
+    border: 1px solid mintcream;
+}
+
+.checkbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+    transition: 400ms ease-in-out
+}
+
+.checkbox .trace{
+    width: 50px;
+    height: 2px;
+    background-color: #1e1e2a;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out
+}
+
+.checkbox .trace:nth-child(1){
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle{
+    display: none;
+}
+
+.menu{
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px mintcream;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+.menu-items{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items ul{
+    list-style-type: none;
+}
+
+.menu-items ul li a{
+    margin: 10px 0;
+    color: #1e1e2a;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size:  40px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(1){
+    transform: rotate(45deg);
+    top: 47px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2){
+    transform: rotate(45deg);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(135deg);
+    top: 48px;
+}
+
+#toggle:checked + .checkbox{
+    background-color: mintcream; 
+}
+
+#toggle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 100vmax mintcream;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-items{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*******************************  cards   *******************************/
+.box{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100px;
+
+}
+
+.box li{
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: red;
+    background: rgb(28, 255, 66);
+    border-radius: 5px;
+}
+
+.box-cover{
+    font-size: 0;
+    line-height: 1em;
+}
+
+.box-cover img{
+    width: 100%;
+    transform: scale("1.1");
+    transition: all 300ms ease-in-out;
+}
+
+.box-info{
+    position:absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    color: pink;
+    font-size: 15px;
+}
+
+.box-info:before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: .8;
+    visibility: hidden;
+    background: linear-gradient(to bottom, transparent, rgb(49, 49, 49, 0.2));
+    transition: all 250ms ease-in-out;
+    transform:  translate(0, 50%);
+}
+
+.box-mais-info{
+    position: relative;
+    z-index: 2;
+    transition: all 250ms ease-in-out;
+    transform:  translate(0, 50%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.box-mais-info h1{
+    font-size: 20px;
+}
+
+.box:hover .box-cover img{
+    transform: scale("1");
+}
+
+.box:hover .box-info:before,.box:hover .box-mais-info{
+    transform:  translate(0, 50%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mais-sobre-tech{
+    margin-bottom: 15px;
+    margin-right: 5px;
+    
+}
+
+/***************************    teste-projetos   ***************************
+
+.section{
+    float: right;
+    width: 100%;
+}
+
+.content{
+    max-width: 960px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row{
+    float: left;
+    width: 100%;
+}
+
+/*.section-header{
+    margin-top: 40px;
+    font-size: 82px;
+    text-align: center;
+}
+.section-header h1{
+    font-size: 85px;
+    font-weight: normal;
+}*/
+
+/***************************    projetos   ***************************
+.box{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    width: 400px;
+
+}
+
+.box-name{
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    font-size: 14px;
+    color: hotpink;
+    background-color: yellowgreen;
+    border-radius: 10px;
+    padding: 5px 10px; /*testar*
+}
+
+.box-info{
+    position:absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    color: pink;
+    font-size: 15px;
+}
+
+/*
+.box li{
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: red;
+    background: rgb(28, 255, 66);
+    border-radius: 5px;
+}*essefecha
+
+.box-cover{
+    font-size: 0;
+    line-height: 1em;
+}
+
+.box-cover img{
+    width: 100%;
+    transform: scale("1.1");
+    transition: all 300ms ease-in-out;
+}
+
+
+.box-info:before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: .8;
+    visibility: hidden;
+    background: linear-gradient(to bottom, transparent, rgb(49, 49, 49, 0.2));
+    transition: all 250ms ease-in-out;
+    transform:  translate(0, 50%);
+}
+
+.box-mais-info{
+    position: relative;
+    z-index: 2;
+    transition: all 250ms ease-in-out;
+    transform:  translate(0, 50%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.box-mais-info h1{
+    font-size: 20px;
+}
+
+.box:hover .box-cover img{
+    transform: scale("1");
+}
+
+.box:hover .box-info:before,.box:hover .box-mais-info{
+    transform:  translate(0, 50%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mais-sobre-tech{
+    margin-bottom: 15px;
+    margin-right: 5px;
+    
+}
